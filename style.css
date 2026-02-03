@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e7e7e7;
+    background-color: #2D2D2D;
+}
+
+#contacth1 {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    transition: 0.25s ease;
+
+}
+
+input:hover {
+border: solid 2px #3f93b8 ;
+ border-color: #3f93b8
+}
+
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    transition: 0.25s ease-in-out;
+    background-color: rgb(7, 123, 177);
+    color: white;
+}
+
+.dataItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dotted rgb(96 139 168);
+}
+
+#dataColumnLabels {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    align-items: start;
+    /* Align Items Vertically */
+    justify-content: space-between;
+    /* Align Items Horizontally (with equal space in between each of them */
+    border: dashed 1px blue;
+}
+
+#contacts {
+    border: dashed 1px red;
+}
+
+#phones {
+    border: dashed 1px green
+}
+
+#address {
+    border: dashed 1px blue;
+}
+
+#emails {
+    border: dashed 1px purple; 
+}
+.warnText {
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.inputBox {
+    border: dashed 1px red;
+}

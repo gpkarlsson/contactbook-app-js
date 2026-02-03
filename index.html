@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1 id="contacth1">Contact Book</h1>
+
+        <div id="input">
+            <div id="nameData" class="inputBox">
+                <label for="name" id="phoneLabel">Name</label>
+                <input type="text" name="nameInput" id="nameSubmit">
+                <button id="nameBtn" onclick="handleNameClick()">Submit</button>
+                <p id="nameWarn" class="warnText"></p>
+                <br>
+            </div>
+
+            <div id="phoneData">
+                <label for="phoneInput" id="phoneLabel">Phone</label>
+                <input class="inputBox" type="text" name="phoneInput" id="phoneSubmit">
+                <button id="phoneBtn" onclick="handlePhoneClick()">Submit</button>
+                <p id="phoneWarn" class="warnText"></p>
+                <br>
+            </div>
+
+            <div id="addressData">
+                <label for="address">Address</label>
+                <input class="inputBox" type="text" name="address" id="addressSubmit">
+                <button id="addressBtn" onclick="handleAddressClick()">Submit</button>
+                <p id="addressWarn" class="warnText"></p>
+                <br>
+            </div>
+
+            <div id="emailData" class="inputBox">
+                <label for="">E-mail</label>
+                <input type="text" name="email" id="emailSubmit">
+                <button id="emailBtn" onclick="handleEmailClick()">Submit</button>
+                <p id="emailWarn" class="warnText"></p>
+                <br>
+            </div>
+        </div>
+
+        <div id="datacolumnLabels">
+            <div id="contacts" class="dataCol">
+                <h2>Names</h2>
+                <p id="contactDataP"></p>
+                <ul id="contactList"></ul>
+            </div>
+
+            <div id="phones" class="dataCol">
+                <h2>Phone</h2>
+                <p id=""></p>
+                <ul id="phoneList"></ul>
+            </div>
+
+            <div id="address" class="dataCol">
+                <h2>Address</h2>
+                <p id="addressLabel"></p>
+                <ul id="addressList"></ul>
+            </div>
+
+            <div id="emails" class="dataCol">
+                <h2>Email</h2>
+                <p></p>
+                <ul id="emailList"></ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./contacts.js"></script>
+</html>
