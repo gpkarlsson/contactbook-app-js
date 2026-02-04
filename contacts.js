@@ -88,11 +88,25 @@ function handleEmailClick() {
     }
 };
 
+
+//TODO: combine 
 function displayNames() {
-    contactList.innerHTML = `<li>${contactNames}</li>`;
+    contactNames.forEach(contact => {
+        const contactEntry = document.createElement('li');
+        contactEntry.innerHTML = `
+        <li>${contact}</li>
+        `
+        //! this kind of works, it creates new items but does not render the entered text and 
+        //! also seems to be creating new items at an exponential rate?
+        //! with contactEntry.innerHTML no errors thrown in console, but not creating any li elements. Getting closer but still not there.
+
+        //TODO: fix it lol
+    });
+    // contactList.innerHTML = `<li>${contactNames}</li>`;
     console.log(contactNames);
     //push data submitted to array, display data from array in ol/ul 
     //TODO: create new li element every time button is clicked 
+
 };
 
 function displayPhones() {
