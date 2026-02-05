@@ -13,118 +13,102 @@ const phoneList = document.getElementById("phoneList");
 const addressList = document.getElementById("addressList");
 const emailList = document.getElementById("emailList");
 
-let nameWarn = document.getElementById('nameWarn');
-let phoneWarn = document.getElementById('phoneWarn');
-let addressWarn = document.getElementById('addressWarn');
-let emailWarn = document.getElementById('emailWarn');
+let nameWarn = document.getElementById("nameWarn");
+let phoneWarn = document.getElementById("phoneWarn");
+let addressWarn = document.getElementById("addressWarn");
+let emailWarn = document.getElementById("emailWarn");
 
-let contactNames = [];
-let contactPhones = [];
-let contactAddresses = [];
-let contactEmails = [];
+const nameVal = nameField.value;
+const phoneVal = phoneField.value;
+const addressVal = addressField.value;
+const emailVal = emailField.value;
 
-function clearNameField(){
+function clearNameField() {
     nameField.value = "";
-};
+}
 
-function clearPhoneField(){
+function clearPhoneField() {
     phoneField.value = "";
-};
+}
 
-function clearAddressField(){
+function clearAddressField() {
     addressField.value = "";
-};
+}
 
-function clearEmailField(){
+function clearEmailField() {
     emailField.value = "";
-};
+}
 
+//TODO: put nameVal into localStorage
 function handleNameClick() {
     const nameVal = nameField.value;
     if (nameVal.length < 3) {
-        nameWarn.textContent = "You must enter at least 3 characters!"
+        nameWarn.textContent = "You must enter at least 3 characters!";
     } else {
-        nameWarn.textContent = ""
-        contactNames.push(nameVal);
-        displayNames();
+        nameWarn.textContent = "";
+        const nameEntry = document.createElement("li");
+        contactList.appendChild(nameEntry);
+        nameEntry.textContent = nameVal;
+        // localStorage.setItem(name1, nameVal);
         clearNameField();
     }
-};
+}
 
+//TODO: put phoneVal into localStorage
 function handlePhoneClick() {
-//TODO: fix phone regex, validate phone num, non int chars can currently be submitted
+    //TODO: fix phone regex, validate phone num, non int chars can currently be submitted
     const phoneVal = phoneField.value;
-    // const phoneRegex = /[0-9]/   
-     if (phoneVal.length < 10 || parseInt(phoneVal) === NaN) {
-        phoneWarn.textContent = "You must enter a phone number at least 10 digits long!"
+    // const phoneRegex = /[0-9]/
+    if (phoneVal.length < 10 || parseInt(phoneVal) === NaN) {
+        phoneWarn.textContent =
+            "You must enter a phone number at least 10 digits long!";
     } else {
         phoneWarn.textContent = "";
-        contactPhones.push(phoneVal);
-        displayPhones();
+        const phoneEntry = document.createElement("li");
+        phoneList.appendChild(phoneEntry);
+        phoneEntry.textContent = phoneVal;
         clearPhoneField();
     }
-};
+}
 
+//TODO: put addressVal into localStorage
 function handleAddressClick() {
     const addressVal = addressField.value;
-    contactAddresses.push(addressVal);
-    displayAddresses();
+    const addressEntry = document.createElement("li");
+    addressList.appendChild(addressEntry);
+    addressEntry.textContent = addressVal;
     clearAddressField();
-};
+}
 
+//TODO: put emailVal into localStorage
 function handleEmailClick() {
     //TODO: finish email validation
-    let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/
+    let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
     // console.log(regex.match('gordon@email.com'));
     const emailVal = emailField.value;
-    
-    if (regex.test(emailVal === false) || emailVal.length < 5 || emailVal.includes('@') == false) {
-        emailWarn.textContent = "You must enter a valid email address that is at least 5 characters long!"
+
+    if (
+        regex.test(emailVal === false) ||
+        emailVal.length < 5 ||
+        emailVal.includes("@") == false
+    ) {
+        emailWarn.textContent =
+            "You must enter a valid email address that is at least 5 characters long!";
     } else {
-        emailWarn.textContent = ""
-        contactEmails.push(emailVal);
-        displayEmails();
-    clearEmailField();
+        emailWarn.textContent = "";
+        const emailEntry = document.createElement("li");
+        emailList.appendChild(emailEntry);
+        emailEntry.textContent = emailVal;
+        clearEmailField();
     }
-};
+}
 
+//TODO: combine all data into one set of forms that is submitted all together
 
-//TODO: combine 
-function displayNames() {
-    contactNames.forEach(contact => {
-        const contactEntry = document.createElement('li');
-        contactEntry.innerHTML = `
-        <li>${contact}</li>
-        `
-        //! this kind of works, it creates new items but does not render the entered text and 
-        //! also seems to be creating new items at an exponential rate?
-        //! with contactEntry.innerHTML no errors thrown in console, but not creating any li elements. Getting closer but still not there.
-
-        //TODO: fix it lol
-    });
-    // contactList.innerHTML = `<li>${contactNames}</li>`;
-    console.log(contactNames);
-    //push data submitted to array, display data from array in ol/ul 
-    //TODO: create new li element every time button is clicked 
-
-};
-
-function displayPhones() {
-    phoneList.innerHTML = `<li>${contactPhones}</li>`;
-};
-
-function displayAddresses() {
-    addressList.innerHTML = `<li>${contactAddresses}</li>`;
-};
-
-function displayEmails() {
-    emailList.innerHTML = `<li>${contactEmails}</li>`;
-};
-
-console.log("names:", contactNames);
-console.log("phones:", contactPhones);
-console.log("addresses:", contactAddresses);
-console.log("emails:", contactEmails);
+console.log("names:", nameVal);
+console.log("phones:", phoneVal);
+console.log("addresses:", addressVal);
+console.log("emails:", emailVal);
 
 // push name data into array
 // combine data at same position in array
