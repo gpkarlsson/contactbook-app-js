@@ -1,34 +1,49 @@
+:root {
+    --primary-bg-color: #121212;
+    --primary-text-color: #E0E0E0;
+    --secondary-text-color: #B0B0B0;
+    --borders: #444444;
+    --accent: #888888;
+    --warn-text: red;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    color: #e7e7e7;
-    background-color: #464444;
+    color: var(--primary-text-color);
+    background-color: var(--primary-bg-color);
 }
 
 #contacth1 {
+    color: var(--primary-text-color);
     display: flex;
     justify-content: center;
 }
 
-input {
-    transition: 0.25s ease;
-
+#input {
+    box-shadow: 2px 4px 4px gray;
 }
 
 input:hover {
-border: solid 2px #3f93b8 ;
- border-color: #3f93b8
+    border: solid 1px blue;
+    border-color: blue
 }
 
-
-button {
+#submitBtn {
     cursor: pointer;
+    border: 2px solid var(--borders);
+    border-radius: 10px;
+    box-shadow: 1px 2px 2px gray;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    padding: 10px;
+    margin: 10px;
 }
 
-button:hover {
+#submitBtn:hover {
     transition: 0.25s ease-in-out;
-    background-color: rgb(7, 123, 177);
+    background-color: blue;
     color: white;
 }
 
@@ -36,41 +51,56 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px dotted rgb(96 139 168);
+    border: 2px var(--borders);
+}
+#dataColumnLabels{
+    border: solid 5px var(--borders);
+    box-shadow: 2px 4px 4px gray;
+    border-radius: 5px;
+    background-color: var(--primary-bg-color);
+    color: var(--secondary-text-color);
+    margin: 10px;
 }
 
-#dataColumnLabels {
-    display: flex;
-    width: 100%;
-    height: 100px;
-    align-items: start;
-    /* Align Items Vertically */
-    justify-content: space-between;
-    /* Align Items Horizontally (with equal space in between each of them */
-    border: dashed 1px blue;
+.dataCol {
+    display: inline-block;
+    justify-content: space-around;
+    align-items: left;
+    text-align: left;
+    width: 20%;
+    height: 100%;
+    margin: 10px;
+    padding: 10px;
+    width: 20%;
 }
 
-#contacts {
-    border: dashed 1px red;
+#input {
+    border: solid 4px var(--borders);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    display: block;
+    justify-content: center;
+    align-items: center;
 }
 
-#phones {
-    border: dashed 1px green
+.inputBox {
+    display: inline-block;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-colorvc)
 }
 
-#address {
-    border: dashed 1px blue;
-}
-
-#emails {
-    border: dashed 1px purple; 
-}
 .warnText {
-    color: red;
+    color: var(--warn-text);
     font-style: italic;
     font-size: 12px;
 }
 
 .inputBox {
-    border: dashed 1px red;
+    border-radius: 5px;
 }

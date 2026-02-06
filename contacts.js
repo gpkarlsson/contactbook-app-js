@@ -23,30 +23,53 @@ const phoneVal = phoneField.value;
 const addressVal = addressField.value;
 const emailVal = emailField.value;
 
+//TODO: combine all clear functions into one single function
 function clearNameField() {
     nameField.value = "";
-}
+};
 
 function clearPhoneField() {
     phoneField.value = "";
-}
+};
 
 function clearAddressField() {
     addressField.value = "";
-}
+};
 
 function clearEmailField() {
     emailField.value = "";
-}
+};
+
+function clearFields(){
+    nameField.value = "";
+    phoneField.value = "";
+    addressField.value = "";
+    emailField.value = "";
+};
+
+function handleDataSubmit() {
+    handleNameClick();
+    handlePhoneClick();
+    handleAddressClick();
+    handleEmailClick();
+};
+
+//-------------------------------------------------------------------------------------------------
+
+
+
+
 
 //TODO: put nameVal into localStorage
 function handleNameClick() {
     const nameVal = nameField.value;
+    console.log(nameVal);
+
     if (nameVal.length < 3) {
         nameWarn.textContent = "You must enter at least 3 characters!";
     } else {
         nameWarn.textContent = "";
-        const nameEntry = document.createElement("li");
+        const nameEntry = document.createElement("li")
         contactList.appendChild(nameEntry);
         nameEntry.textContent = nameVal;
         // localStorage.setItem(name1, nameVal);
@@ -65,19 +88,28 @@ function handlePhoneClick() {
     } else {
         phoneWarn.textContent = "";
         const phoneEntry = document.createElement("li");
+        const separator = document.createElement("hr")
         phoneList.appendChild(phoneEntry);
+        phoneEntry.appendChild(separator);
         phoneEntry.textContent = phoneVal;
         clearPhoneField();
     }
 }
 
 //TODO: put addressVal into localStorage
+//TODO: input validation 
 function handleAddressClick() {
     const addressVal = addressField.value;
-    const addressEntry = document.createElement("li");
-    addressList.appendChild(addressEntry);
-    addressEntry.textContent = addressVal;
-    clearAddressField();
+    if (addressVal.length < 5) {
+        addressWarn.textContent = "You must enter at least 5 characters!";
+        throw new Error('hey dumbass you fucked up');
+    } else {
+        const addressEntry = document.createElement("li");
+        addressList.appendChild(addressEntry);
+        addressEntry.textContent = addressVal;
+        clearAddressField();
+    }
+   
 }
 
 //TODO: put emailVal into localStorage
